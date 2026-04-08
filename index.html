@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Find The Impostor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div id="screen-home" class="screen active">
+        <div class="hero-text">FIND<br />THE<br />IMPOSTOR</div>
+        <button class="btn-join" onclick="switchScreen('screen-count')">
+          Join
+        </button>
+      </div>
+
+      <div id="screen-count" class="screen">
+        <div class="panel">
+          <button class="btn-back" onclick="switchScreen('screen-home')">
+            ❮
+          </button>
+          <h1>Choose<br />How Many Players</h1>
+          <div class="btn-list">
+            <button class="btn" onclick="setPlayerCount(3)">3 Three</button>
+            <button class="btn" onclick="setPlayerCount(4)">4 Four</button>
+            <button class="btn" onclick="setPlayerCount(5)">5 Five</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-names" class="screen">
+        <div class="panel">
+          <button class="btn-back" onclick="switchScreen('screen-count')">
+            ❮
+          </button>
+          <h1>Players</h1>
+          <div id="nameInputs"></div>
+          <button
+            class="btn"
+            onclick="startLoading()"
+            style="background-color: #10b981"
+          >
+            Enter
+          </button>
+        </div>
+      </div>
+
+      <div id="screen-loading" class="screen">
+        <div class="panel">
+          <h1>Rolling Players</h1>
+          <div class="loading-bar">
+            <div class="loading-fill" id="loadingFill"></div>
+          </div>
+          <h2>Loading</h2>
+        </div>
+      </div>
+
+      <div id="screen-category" class="screen">
+        <div class="panel">
+          <button class="btn-back" onclick="switchScreen('screen-names')">
+            ❮
+          </button>
+          <h1>Categories</h1>
+          <div class="btn-list">
+            <button class="btn" onclick="selectCategory('Place')">Place</button>
+            <button class="btn" onclick="selectCategory('Public Figure')">
+              Public Figure
+            </button>
+            <button class="btn" onclick="selectCategory('Stuff')">Stuff</button>
+            <button class="btn" onclick="selectCategory('Animals')">
+              Animals
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-swipe" class="screen">
+        <div class="player-label" id="currentPlayerLabel">👤 Player</div>
+
+        <div class="swipe-container" id="swipeContainer">
+          <div class="reveal-card">
+            <div id="revealContent"></div>
+          </div>
+          <div class="swipe-card" id="swipeCard">
+            <div class="arrows">︽</div>
+            <h2>Swipe Up</h2>
+            <div class="arrows" style="margin-top: -20px">︽</div>
+          </div>
+        </div>
+        <button
+          id="btnNextPlayer"
+          class="btn"
+          style="display: none; background-color: #10b981"
+          onclick="nextPlayerTurn()"
+        >
+          Lanjut
+        </button>
+      </div>
+
+      <div id="screen-discussion" class="screen">
+        <div class="hero-text" style="font-size: 45px; margin-top: 40px">
+          FIND<br />THE<br />IMPOSTOR
+        </div>
+        <button
+          class="btn-join1"
+          style="font-size: 18px; padding: 15px 30px; margin-top: 30px"
+          onclick="location.reload()"
+        >
+          Play Again
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
