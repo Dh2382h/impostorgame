@@ -1,37 +1,18 @@
-const database = {
-  Place: [
-    { id: 1, name: "Pantai" },
-    { id: 2, name: "Gunung" },
-    { id: 3, name: "Sekolah" },
-    { id: 4, name: "Rumah Sakit" },
-    { id: 5, name: "Mall" },
-    { id: 6, name: "Pasar" },
-  ],
-  "Public Figure": [
-    { id: 1, name: "Joko Widodo" },
-    { id: 2, name: "Agnez Mo" },
-    { id: 3, name: "Reza Rahadian" },
-    { id: 4, name: "Raditya Dika" },
-    { id: 5, name: "Pratama Arhan" },
-    { id: 6, name: "Jess No Limit" },
-  ],
-  Stuff: [
-    { id: 1, name: "Mobil" },
-    { id: 2, name: "Motor" },
-    { id: 3, name: "Laptop" },
-    { id: 4, name: "Smartphone" },
-    { id: 5, name: "Meja" },
-    { id: 6, name: "Kursi" },
-  ],
-  Animals: [
-    { id: 1, name: "Kucing" },
-    { id: 2, name: "Anjing" },
-    { id: 3, name: "Singa" },
-    { id: 4, name: "Harimau" },
-    { id: 5, name: "Burung" },
-    { id: 6, name: "Ikan" },
-  ],
-};
+let database = {};
+
+async function loadData() {
+  try {
+    const response = await fetch("database.json");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    database = await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+loadData();
 
 let totalPlayers = 0;
 let players = [];
@@ -81,12 +62,16 @@ function startLoading() {
 }
 
 function selectCategory(category) {
+  if (Object.keys(database).length === 0) {
+    alert("Data belum siap.");
+    return;
+  }
+
   impostorIndex = Math.floor(Math.random() * players.length);
 
   let kataArray = database[category];
   let randomKataIndex = Math.floor(Math.random() * kataArray.length);
-
-  wordCitizen = kataArray[randomKataIndex].name;
+  wordCitizen = kataArray[randomKataIndex];
 
   currentPlayerIndex = 0;
   prepareSwipeScreen();

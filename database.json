@@ -1,0 +1,13 @@
+{
+  "Place": ["Pantai", "Gunung", "Sekolah", "Rumah Sakit", "Mall", "Pasar"],
+  "Public Figure": [
+    "Presiden",
+    "Penyanyi",
+    "Aktor",
+    "YouTuber",
+    "Atlet",
+    "Gamer"
+  ],
+  "Stuff": ["Car", "Motorcycle", "Laptop", "Smartphone", "Table", "Chair"],
+  "Animals": ["Cat", "Dog", "Lion", "Tiger", "Bird", "Fish"]
+}
