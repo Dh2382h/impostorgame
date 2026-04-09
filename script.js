@@ -1,4 +1,3 @@
-// 1. Mengubah Database menjadi Array of Objects (Opsi 2)
 const database = {
   Place: [
     { id: 1, name: "Pantai" },
@@ -81,16 +80,12 @@ function startLoading() {
   }, 100);
 }
 
-// 2. Menyesuaikan cara mengambil data dari format baru
 function selectCategory(category) {
   impostorIndex = Math.floor(Math.random() * players.length);
 
   let kataArray = database[category];
   let randomKataIndex = Math.floor(Math.random() * kataArray.length);
 
-  // PERUBAHAN PENTING:
-  // Karena sekarang bentuknya objek { id: 1, name: "Pantai" },
-  // kita harus memanggil properti .name untuk mendapatkan kata "Pantai"-nya.
   wordCitizen = kataArray[randomKataIndex].name;
 
   currentPlayerIndex = 0;
