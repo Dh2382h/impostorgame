@@ -1,16 +1,39 @@
+// 1. Mengubah Database menjadi Array of Objects (Opsi 2)
 const database = {
-  Place: ["Pantai", "Gunung", "Sekolah", "Rumah Sakit", "Mall", "Pasar"],
-  "Public Figure": [
-    "Joko Widodo",
-    "Agnez Mo",
-    "Reza Rahadian",
-    "Raditya Dika",
-    "Pratama Arhan",
-    "Jess No Limit",
+  Place: [
+    { id: 1, name: "Pantai" },
+    { id: 2, name: "Gunung" },
+    { id: 3, name: "Sekolah" },
+    { id: 4, name: "Rumah Sakit" },
+    { id: 5, name: "Mall" },
+    { id: 6, name: "Pasar" },
   ],
-  Stuff: ["Mobil", "Motor", "Laptop", "Smartphone", "Meja", "Kursi"],
-  Animals: ["Kucing", "Anjing", "Singa", "Harimau", "Burung", "Ikan"],
+  "Public Figure": [
+    { id: 1, name: "Joko Widodo" },
+    { id: 2, name: "Agnez Mo" },
+    { id: 3, name: "Reza Rahadian" },
+    { id: 4, name: "Raditya Dika" },
+    { id: 5, name: "Pratama Arhan" },
+    { id: 6, name: "Jess No Limit" },
+  ],
+  Stuff: [
+    { id: 1, name: "Mobil" },
+    { id: 2, name: "Motor" },
+    { id: 3, name: "Laptop" },
+    { id: 4, name: "Smartphone" },
+    { id: 5, name: "Meja" },
+    { id: 6, name: "Kursi" },
+  ],
+  Animals: [
+    { id: 1, name: "Kucing" },
+    { id: 2, name: "Anjing" },
+    { id: 3, name: "Singa" },
+    { id: 4, name: "Harimau" },
+    { id: 5, name: "Burung" },
+    { id: 6, name: "Ikan" },
+  ],
 };
+
 let totalPlayers = 0;
 let players = [];
 let impostorIndex = -1;
@@ -58,12 +81,17 @@ function startLoading() {
   }, 100);
 }
 
+// 2. Menyesuaikan cara mengambil data dari format baru
 function selectCategory(category) {
   impostorIndex = Math.floor(Math.random() * players.length);
 
   let kataArray = database[category];
   let randomKataIndex = Math.floor(Math.random() * kataArray.length);
-  wordCitizen = kataArray[randomKataIndex];
+
+  // PERUBAHAN PENTING:
+  // Karena sekarang bentuknya objek { id: 1, name: "Pantai" },
+  // kita harus memanggil properti .name untuk mendapatkan kata "Pantai"-nya.
+  wordCitizen = kataArray[randomKataIndex].name;
 
   currentPlayerIndex = 0;
   prepareSwipeScreen();
