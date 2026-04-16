@@ -1,3 +1,4 @@
+// script.js
 let database = {};
 
 async function loadData() {

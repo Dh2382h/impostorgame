@@ -1,3 +1,4 @@
+/* style.css */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700&display=swap");
 
 :root {
@@ -5,7 +6,7 @@
   --card-color: #2b328a;
   --text-light: #ffffff;
   --btn-color: #4a8cd4;
-  --danger: #e53935; /* Merah Impostor */
+  --danger: #e53935;
 }
 
 body {
@@ -16,22 +17,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Menggunakan 100dvh (dynamic viewport height) agar pas di browser HP yang ada address bar-nya */
   min-height: 100dvh;
   overflow: hidden;
 }
 
 .app-container {
   width: 100%;
-  max-width: 500px; /* Dilebarkan sedikit agar nyaman di Tablet */
-  height: 100dvh; /* Memenuhi layar penuh di HP */
+  max-width: 500px;
+  height: 100dvh;
   max-height: 850px;
   background-color: var(--bg-color);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5% 20px; /* Padding menggunakan persentase agar fleksibel */
+  padding: 5% 20px;
   box-sizing: border-box;
 }
 
@@ -60,10 +60,8 @@ body {
   }
 }
 
-/* --- LOGO TEXT ANIMASI --- */
 .hero-text {
   font-family: "Fredoka One", cursive;
-  /* clamp() membuat font responsif: min 40px, ideal 10vw, max 65px */
   font-size: clamp(40px, 12vw, 65px);
   color: var(--danger);
   text-align: center;
@@ -99,9 +97,9 @@ body {
   background-color: var(--card-color);
   color: white;
   border: none;
-  padding: 15px 10vw; /* Padding kiri-kanan fleksibel */
+  padding: 15px 10vw;
   border-radius: 40px;
-  font-size: clamp(20px, 6vw, 28px); /* Font responsif */
+  font-size: clamp(20px, 6vw, 28px);
   font-family: "Fredoka One", cursive;
   cursor: pointer;
   transition:
@@ -124,7 +122,6 @@ body {
   box-shadow: none;
 }
 
-/* --- PANEL & UI LAINNYA --- */
 .panel {
   background-color: var(--card-color);
   width: 95%;
@@ -247,14 +244,13 @@ input {
 .swipe-container {
   width: 75%;
   max-width: 300px;
-  height: clamp(300px, 50vh, 400px); /* Tinggi dinamis berdasarkan layar */
+  height: clamp(300px, 50vh, 400px);
   position: relative;
   margin: 20px auto;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   background-color: white;
-  /* Penting untuk HP: Mencegah layar browser tertarik (pull-to-refresh) saat men-swipe kartu */
   touch-action: none;
 }
 
