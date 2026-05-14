@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -24,10 +24,31 @@
             ❮
           </button>
           <h1>Choose<br />How Many Players</h1>
-          <div class="btn-list">
-            <button class="btn" onclick="setPlayerCount(3)">3 Three</button>
-            <button class="btn" onclick="setPlayerCount(4)">4 Four</button>
-            <button class="btn" onclick="setPlayerCount(5)">5 Five</button>
+          <p
+            style="
+              font-size: 16px;
+              margin-bottom: 15px;
+              font-weight: bold;
+              color: rgba(255, 255, 255, 0.8);
+            "
+          >
+            ( 3 - 10 Players )
+          </p>
+          <input
+            type="number"
+            id="customPlayerCount"
+            min="3"
+            max="10"
+            placeholder="Example: 5"
+          />
+          <div class="btn-list" style="margin-top: 15px">
+            <button
+              class="btn"
+              onclick="applyPlayerCount()"
+              style="background-color: #10b981"
+            >
+              Continue
+            </button>
           </div>
         </div>
       </div>
@@ -97,7 +118,7 @@
           style="display: none; background-color: #10b981"
           onclick="nextPlayerTurn()"
         >
-          Lanjut
+          Next
         </button>
       </div>
 

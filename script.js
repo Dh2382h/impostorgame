@@ -1,4 +1,3 @@
-// script.js
 let database = {};
 
 async function loadData() {
@@ -28,7 +27,15 @@ function switchScreen(screenId) {
   document.getElementById(screenId).classList.add("active");
 }
 
-function setPlayerCount(num) {
+function applyPlayerCount() {
+  const inputVal = document.getElementById("customPlayerCount").value;
+  const num = parseInt(inputVal);
+
+  if (isNaN(num) || num < 3 || num > 10) {
+    alert("Please enter a number between 3 and 10.");
+    return;
+  }
+
   totalPlayers = num;
   const nameContainer = document.getElementById("nameInputs");
   nameContainer.innerHTML = "";
@@ -37,6 +44,7 @@ function setPlayerCount(num) {
     let placeholder = `Player ${i + 1}`;
     nameContainer.innerHTML += `<input type="text" id="pname_${i}" placeholder="${placeholder}">`;
   }
+
   switchScreen("screen-names");
 }
 
@@ -64,7 +72,7 @@ function startLoading() {
 
 function selectCategory(category) {
   if (Object.keys(database).length === 0) {
-    alert("Data belum siap.");
+    alert("Data is not ready yet.");
     return;
   }
 
